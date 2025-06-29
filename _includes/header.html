@@ -1,0 +1,40 @@
+{% assign t = site.data.translations[page.lang | default: site.lang | default: 'ja'] %}
+{% if page.lang == 'en' %}
+  {% assign nav = site.data.navigation.main_en %}
+{% else %}
+  {% assign nav = site.data.navigation.main %}
+{% endif %}
+
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="{{ '/' | relative_url }}" class="logo">
+        <span class="logo-text">{{ t.site_title }}</span>
+      </a>
+      
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <div class="nav-menu">
+        <ul class="nav-list">
+          {% for item in nav %}
+            <li class="nav-item">
+              <a href="{{ item.url | relative_url }}" class="nav-link">{{ item.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        
+        <div class="lang-switcher">
+          {% if page.lang == 'en' %}
+            <a href="{{ page.url | replace: '/en/', '/' }}" class="lang-link">日本語</a>
+          {% else %}
+            <a href="/en{{ page.url }}" class="lang-link">English</a>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

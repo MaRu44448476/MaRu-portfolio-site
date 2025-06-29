@@ -1,0 +1,66 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that.
+
+# Site settings
+title: フリーランス Webデザイナー・ブロガー
+email: tkmr.3aeau@gmail.com
+description: >-
+  フリーランスのWebデザイナー・ブロガーです。LP制作、ブログ執筆、Webデザインのご依頼を承っています。
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: Maru44448476
+github_username:  your_github_username
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# Collections
+collections:
+  works:
+    output: true
+    permalink: /works/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "works"
+    values:
+      layout: "work"
+  - scope:
+      path: ""
+    values:
+      lang: "ja"
+
+# Pagination
+paginate: 6
+paginate_path: "/works/page:num/"
+
+# SEO
+lang: ja
+author: Your Name
+social:
+  name: Your Name
+  links:
+    - https://twitter.com/your_twitter_username
+    - https://note.com/your_note_username
+
+# Analytics
+google_analytics: G-NZRXQQ8WSZ
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

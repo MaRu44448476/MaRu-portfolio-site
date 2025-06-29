@@ -1,0 +1,19 @@
+main:
+  - title: "ホーム"
+    url: /
+  - title: "作品"
+    url: /works/
+  - title: "プロフィール"
+    url: /about/
+  - title: "お問い合わせ"
+    url: /#contact
+
+main_en:
+  - title: "Home"
+    url: /
+  - title: "Works"
+    url: /works/
+  - title: "About"
+    url: /about/
+  - title: "Contact"
+    url: /#contact

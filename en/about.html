@@ -1,0 +1,306 @@
+---
+layout: default
+title: About
+permalink: /en/about/
+lang: en
+---
+
+{% assign t = site.data.translations[page.lang] %}
+
+<section class="about-page section">
+  <div class="container">
+    <h1 class="page-title text-center mb-3 fade-in">About</h1>
+    
+    <div class="about-content">
+      <div class="about-intro fade-in">
+        <div class="profile-image">
+          <img src="/assets/images/profile.jpg" alt="Profile image">
+        </div>
+        <div class="intro-text">
+          <h2>Freelance Web Designer & Blogger</h2>
+          <p>I specialize in user-centered design and SEO-conscious content creation. I strive to understand my clients' business goals and provide optimal web solutions.</p>
+        </div>
+      </div>
+      
+      <div class="about-section fade-in">
+        <h3>{{ t.skills }}</h3>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>Design</h4>
+            <ul class="skill-list">
+              <li>UI/UX Design</li>
+              <li>Responsive Design</li>
+              <li>Wireframing</li>
+              <li>Prototyping</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h4>Development</h4>
+            <ul class="skill-list">
+              <li>HTML5 / CSS3</li>
+              <li>JavaScript</li>
+              <li>WordPress</li>
+              <li>Jekyll</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h4>Tools</h4>
+            <ul class="skill-list">
+              <li>Figma</li>
+              <li>Adobe Creative Suite</li>
+              <li>Git / GitHub</li>
+              <li>Google Analytics</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h4>Others</h4>
+            <ul class="skill-list">
+              <li>SEO Writing</li>
+              <li>Content Marketing</li>
+              <li>A/B Testing</li>
+              <li>Analytics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-section fade-in">
+        <h3>{{ t.experience }}</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2023 - Present</div>
+            <div class="timeline-content">
+              <h4>Freelance Web Designer & Blogger</h4>
+              <p>Started working as an independent freelancer. Focusing on website creation and blog writing for small to medium-sized businesses and startups.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2020 - 2023</div>
+            <div class="timeline-content">
+              <h4>Web Production Company - Designer</h4>
+              <p>Responsible for designing and implementing corporate and e-commerce websites. Participated in over 50 projects.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2018 - 2020</div>
+            <div class="timeline-content">
+              <h4>IT Company - Web Designer</h4>
+              <p>Worked on UI/UX improvements for company services, landing page creation, and owned media operations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-section fade-in">
+        <h3>{{ t.provided_services }}</h3>
+        <div class="services-list">
+          <div class="service-item">
+            <h4>{{ t.web_design }}</h4>
+            <p>I design and create websites tailored to your needs, including corporate sites, portfolio sites, and e-commerce sites.</p>
+          </div>
+          <div class="service-item">
+            <h4>{{ t.lp_creation }}</h4>
+            <p>I create landing pages that maximize the appeal of your products and services while optimizing conversions.</p>
+          </div>
+          <div class="service-item">
+            <h4>{{ t.blog_writing }}</h4>
+            <p>I create high-quality, SEO-conscious content that contributes to increased search traffic and brand awareness.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cta-section text-center fade-in">
+        <h3>Business Inquiries</h3>
+        <p>Feel free to contact me for project consultations or quotes.</p>
+        <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener noreferrer" class="btn">
+          {{ t.contact_button }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.about-page {
+  padding: 3rem 0;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-intro {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 4rem;
+  
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  margin: 0 auto;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.intro-text {
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #555;
+  }
+}
+
+.about-section {
+  margin-bottom: 4rem;
+  
+  h3 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category {
+  h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #4a90e2;
+  }
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  
+  li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    
+    &:before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #4a90e2;
+    }
+  }
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #e0e0e0;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 2rem;
+  
+  &:before {
+    content: "";
+    position: absolute;
+    left: -2.5rem;
+    top: 0.5rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #4a90e2;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px #e0e0e0;
+  }
+}
+
+.timeline-date {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content {
+  h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  p {
+    color: #555;
+    line-height: 1.6;
+  }
+}
+
+.services-list {
+  display: grid;
+  gap: 2rem;
+}
+
+.service-item {
+  padding: 2rem;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  
+  h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #4a90e2;
+  }
+  
+  p {
+    color: #555;
+    line-height: 1.8;
+  }
+}
+
+.cta-section {
+  margin-top: 4rem;
+  padding: 3rem;
+  background-color: #f0f7ff;
+  border-radius: 8px;
+  
+  h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1.125rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+}
+</style>

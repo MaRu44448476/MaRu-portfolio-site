@@ -9,7 +9,7 @@ email: tkmr.3aeau@gmail.com
 description: >-
   フリーランスのWebデザイナー・ブロガーです。LP制作、ブログ執筆、Webデザインのご依頼を承っています。
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://maru-vive.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: Maru44448476
 github_username:  your_github_username
 

@@ -34,11 +34,11 @@ lang: ja
   </div>
 </section>
 
-<!-- About Section -->
+<!-- About Section with Parallax -->
 <section class="about-cyber section" id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-text">
+      <div class="about-text parallax-element" data-speed="0.5">
         <h2 class="section-title neon-text reveal">
           <span>WHO</span> <span class="accent">AM I</span>
         </h2>
@@ -267,20 +267,13 @@ lang: ja
 .about-cyber {
   position: relative;
   padding: 100px 0;
-  background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
 }
 
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  align-items: start;
-  min-height: 500px;
-}
-
-/* About Text Styling */
-.about-text {
-  padding: 2rem 0;
+  align-items: center;
 }
 
 .section-title {
@@ -321,7 +314,6 @@ lang: ja
 /* Profile */
 .profile-container {
   position: relative;
-  margin-top: 24px;
 }
 
 .profile-frame {
@@ -513,26 +505,11 @@ lang: ja
 @media (max-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
-    text-align: center;
-  }
-  
-  .about-text {
-    order: 2;
-  }
-  
-  .about-visual {
-    order: 1;
   }
   
   .profile-frame {
     width: 300px;
     height: 300px;
-  }
-  
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
   }
   
   .works-gallery {
@@ -682,23 +659,4 @@ function typeWriter() {
 }
 
 setTimeout(typeWriter, 1000);
-
-// Reveal Animation on Scroll
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('revealed');
-      observer.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
-
-document.querySelectorAll('.reveal').forEach(el => {
-  observer.observe(el);
-});
 </script>

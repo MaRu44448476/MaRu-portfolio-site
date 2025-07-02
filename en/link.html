@@ -1,0 +1,326 @@
+---
+layout: default
+title: MaRu Link - Content Creator | Blog・Podcast・Projects
+lang: en
+description: MaRu's content hub. Links to blog, podcast, radio, and projects. Get the latest updates via newsletter.
+keywords: MaRu,Content Creator,Blog,Podcast,Radio,Projects,Newsletter
+---
+
+<style>
+/* Panda Animation */
+.panda-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.panda {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.1;
+}
+
+.panda1 { top: 10%; left: 10%; animation-delay: 0s; }
+.panda2 { top: 20%; right: 15%; animation-delay: 1s; }
+.panda3 { bottom: 30%; left: 20%; animation-delay: 2s; }
+.panda4 { top: 60%; right: 10%; animation-delay: 3s; }
+.panda5 { bottom: 20%; right: 25%; animation-delay: 4s; }
+.panda6 { top: 40%; left: 5%; animation-delay: 5s; }
+.panda7 { bottom: 50%; left: 30%; animation-delay: 1.5s; }
+.panda8 { top: 80%; right: 30%; animation-delay: 2.5s; }
+.panda9 { top: 25%; left: 40%; animation-delay: 3.5s; }
+.panda10 { bottom: 10%; left: 60%; animation-delay: 4.5s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(5deg); }
+    50% { transform: translateY(-10px) rotate(-3deg); }
+    75% { transform: translateY(-15px) rotate(3deg); }
+}
+
+/* Link Page Styles */
+.link-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.profile-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.profile-status {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    background: #10b981;
+    border: 3px solid #fff;
+    border-radius: 50%;
+}
+
+.profile-name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    color: #1f2937;
+}
+
+.profile-description {
+    color: #6b7280;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+/* Content Sections */
+.content-section {
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.link-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.link-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.link-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.link-card-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.link-icon {
+    font-size: 2rem;
+    min-width: 60px;
+    text-align: center;
+}
+
+.link-info h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.link-info p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* Footer */
+.link-footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .link-container {
+        padding: 1rem;
+    }
+    
+    .profile-section {
+        padding: 1.5rem;
+    }
+    
+    .profile-stats {
+        gap: 1.5rem;
+    }
+}
+</style>
+
+<div class="panda-container">
+    <div class="panda panda1">🐼</div>
+    <div class="panda panda2">🐼</div>
+    <div class="panda panda3">🐼</div>
+    <div class="panda panda4">🐼</div>
+    <div class="panda panda5">🐼</div>
+    <div class="panda panda6">🐼</div>
+    <div class="panda panda7">🐼</div>
+    <div class="panda panda8">🐼</div>
+    <div class="panda panda9">🐼</div>
+    <div class="panda panda10">🐼</div>
+</div>
+
+<div class="link-container">
+    <div class="profile-section" itemscope itemtype="https://schema.org/Person">
+        <div class="profile-image-container">
+            <img src="{{ '/assets/images/profile.jpg' | relative_url }}" 
+                 alt="MaRu's Profile Photo" 
+                 class="profile-image"
+                 itemprop="image"
+                 width="120" 
+                 height="120"
+                 loading="eager">
+            <div class="profile-status" aria-label="Online Status"></div>
+        </div>
+        <h1 class="profile-name" itemprop="name">MaRu</h1>
+        <p class="profile-description" itemprop="jobTitle">Content Creator・Blogger</p>
+        <div class="profile-stats" role="group" aria-label="Profile Statistics">
+            <div class="stat">
+                <span class="stat-number" aria-label="Followers">1.2K</span>
+                <span class="stat-label">Followers</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" aria-label="Posts">50+</span>
+                <span class="stat-label">Posts</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="section-title">
+            <h2>MaRu's Content</h2>
+        </div>
+        <div class="link-grid">
+            <div class="link-card">
+                <div class="link-card-content">
+                    <div class="link-icon">💼</div>
+                    <div class="link-info">
+                        <h3>Portfolio</h3>
+                        <p>View my work collection</p>
+                    </div>
+                </div>
+            </div>
+            <div class="link-card">
+                <div class="link-card-content">
+                    <div class="link-icon">💰</div>
+                    <div class="link-info">
+                        <h3>Crypto Blog</h3>
+                        <p>Latest cryptocurrency insights</p>
+                    </div>
+                </div>
+            </div>
+            <div class="link-card">
+                <div class="link-card-content">
+                    <div class="link-icon">✍️</div>
+                    <div class="link-info">
+                        <h3>NOTE</h3>
+                        <p>Articles & Columns</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="section-title">
+            <h2>Social Media</h2>
+        </div>
+        <div class="link-grid">
+            <div class="link-card">
+                <div class="link-card-content">
+                    <div class="link-icon">🐦</div>
+                    <div class="link-info">
+                        <h3>X (Twitter)</h3>
+                        <p>Follow for latest updates</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="link-footer">
+        <p>&copy; {{ 'now' | date: "%Y" }} MaRu. All rights reserved. | v{{ site.version }}</p>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "MaRu",
+    "jobTitle": "Content Creator・Blogger",
+    "description": "Content creator specializing in blogs, podcasts, radio, and various digital projects",
+    "url": "{{ site.url }}/en/link",
+    "image": "{{ site.url }}/assets/images/profile.jpg",
+    "sameAs": [
+        "https://github.com/MaRu44448476",
+        "https://twitter.com/{{ site.twitter_username }}"
+    ],
+    "knowsAbout": ["Blog", "Podcast", "Radio", "Content Creation"],
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ site.url }}/en/link"
+    }
+}
+</script>

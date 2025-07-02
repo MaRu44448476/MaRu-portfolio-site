@@ -2,7 +2,8 @@
 layout: default
 ---
 
-{% assign t = site.data.translations[page.lang | default: site.lang | default: 'ja'] %}
+{% assign lang = page.lang | default: site.lang | default: 'ja' %}
+{% assign t = site.data.translations[lang] %}
 
 <article class="work-detail">
   <div class="container">

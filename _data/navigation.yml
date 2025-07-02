@@ -5,6 +5,8 @@ main:
     url: /works/
   - title: "プロフィール"
     url: /about/
+  - title: "リンク"
+    url: /link/
   - title: "お問い合わせ"
     url: /#contact
 
@@ -15,5 +17,7 @@ main_en:
     url: /works/
   - title: "About"
     url: /about/
+  - title: "Links"
+    url: /en/link/
   - title: "Contact"
     url: /#contact

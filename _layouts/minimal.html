@@ -12,16 +12,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
   
   <style>
-    /* Minimal Theme Variables */
+    /* Minimal Theme Variables with Custom Palette */
     :root {
       --pure-white: #FFFFFF;
-      --soft-gray: #F8F9FA;
-      --light-gray: #E9ECEF;
-      --medium-gray: #6C757D;
-      --dark-gray: #212529;
-      --accent-blue: #007BFF;
-      --subtle-shadow: rgba(0, 0, 0, 0.05);
-      --text-shadow: rgba(0, 0, 0, 0.1);
+      --whitewash: #FFFFFF;
+      --saltwater: #257985;
+      --lagoon: #5EA8A7;
+      --raspberry: #FF4447;
+      --soft-teal: rgba(37, 121, 133, 0.05);
+      --light-teal: rgba(94, 168, 167, 0.1);
+      --medium-teal: rgba(37, 121, 133, 0.7);
+      --dark-teal: #1a5a63;
+      --subtle-shadow: rgba(37, 121, 133, 0.08);
+      --text-shadow: rgba(37, 121, 133, 0.1);
     }
 
     * {
@@ -31,8 +34,8 @@
     }
 
     body {
-      background: var(--pure-white);
-      color: var(--dark-gray);
+      background: var(--whitewash);
+      color: var(--dark-teal);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 300;
       line-height: 1.7;
@@ -48,7 +51,7 @@
       right: 0;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--light-gray);
+      border-bottom: 1px solid var(--light-teal);
       z-index: 1000;
       padding: 1.5rem 0;
       transition: all 0.3s ease;
@@ -67,7 +70,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
       font-weight: 500;
-      color: var(--dark-gray);
+      color: var(--saltwater);
       text-decoration: none;
       letter-spacing: -0.02em;
     }
@@ -78,7 +81,7 @@
     }
 
     .minimal-nav-item {
-      color: var(--medium-gray);
+      color: var(--medium-teal);
       text-decoration: none;
       font-weight: 400;
       font-size: 0.9rem;
@@ -87,7 +90,7 @@
     }
 
     .minimal-nav-item:hover {
-      color: var(--dark-gray);
+      color: var(--saltwater);
     }
 
     .minimal-nav-item::after {
@@ -98,7 +101,7 @@
       transform: translateX(-50%);
       width: 0;
       height: 1px;
-      background: var(--accent-blue);
+      background: var(--raspberry);
       transition: width 0.3s ease;
     }
 
@@ -128,7 +131,7 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.5rem, 6vw, 4rem);
       font-weight: 400;
-      color: var(--dark-gray);
+      color: var(--saltwater);
       text-align: center;
       margin-bottom: 2rem;
       letter-spacing: -0.02em;
@@ -138,7 +141,7 @@
     .minimal-subtitle {
       font-size: 1.2rem;
       font-weight: 300;
-      color: var(--medium-gray);
+      color: var(--medium-teal);
       text-align: center;
       margin-bottom: 4rem;
       max-width: 600px;
@@ -149,7 +152,7 @@
     .minimal-text {
       font-size: 1rem;
       line-height: 1.8;
-      color: var(--dark-gray);
+      color: var(--dark-teal);
       text-align: center;
       max-width: 700px;
       margin: 0 auto;
@@ -160,14 +163,14 @@
     .minimal-divider {
       width: 60px;
       height: 1px;
-      background: var(--light-gray);
+      background: var(--lagoon);
       margin: 4rem auto;
     }
 
     /* Cards */
     .minimal-card {
-      background: var(--pure-white);
-      border: 1px solid var(--light-gray);
+      background: var(--whitewash);
+      border: 1px solid var(--light-teal);
       border-radius: 8px;
       padding: 3rem;
       margin: 2rem 0;
@@ -177,15 +180,15 @@
 
     .minimal-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px var(--subtle-shadow);
+      box-shadow: 0 8px 25px rgba(37, 121, 133, 0.15);
     }
 
     /* Buttons */
     .minimal-button {
       display: inline-block;
       padding: 1rem 2rem;
-      background: var(--dark-gray);
-      color: var(--pure-white);
+      background: var(--saltwater);
+      color: var(--whitewash);
       text-decoration: none;
       border-radius: 4px;
       font-weight: 400;
@@ -195,24 +198,24 @@
     }
 
     .minimal-button:hover {
-      background: var(--medium-gray);
+      background: var(--lagoon);
       transform: translateY(-1px);
     }
 
     .minimal-button.outline {
       background: transparent;
-      color: var(--dark-gray);
-      border: 1px solid var(--light-gray);
+      color: var(--saltwater);
+      border: 1px solid var(--lagoon);
     }
 
     .minimal-button.outline:hover {
-      background: var(--soft-gray);
+      background: var(--light-teal);
     }
 
     /* Footer */
     .minimal-footer {
-      background: var(--soft-gray);
-      border-top: 1px solid var(--light-gray);
+      background: var(--soft-teal);
+      border-top: 1px solid var(--light-teal);
       padding: 4rem 0 2rem;
       text-align: center;
       margin-top: 6rem;
@@ -226,7 +229,7 @@
 
     .footer-text {
       font-size: 0.9rem;
-      color: var(--medium-gray);
+      color: var(--medium-teal);
       margin-bottom: 2rem;
     }
 
@@ -238,21 +241,21 @@
     }
 
     .footer-link {
-      color: var(--medium-gray);
+      color: var(--medium-teal);
       text-decoration: none;
       font-size: 0.9rem;
       transition: color 0.3s ease;
     }
 
     .footer-link:hover {
-      color: var(--dark-gray);
+      color: var(--saltwater);
     }
 
     .footer-copyright {
       font-size: 0.8rem;
-      color: var(--medium-gray);
+      color: var(--medium-teal);
       padding-top: 2rem;
-      border-top: 1px solid var(--light-gray);
+      border-top: 1px solid var(--light-teal);
     }
 
     /* Animation */
@@ -299,7 +302,7 @@
     .minimal-nav-item:focus,
     .minimal-button:focus,
     .footer-link:focus {
-      outline: 2px solid var(--accent-blue);
+      outline: 2px solid var(--raspberry);
       outline-offset: 2px;
     }
   </style>

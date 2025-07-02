@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'ja' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }} - Minimal Mode</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Minimal Theme Variables */
+    :root {
+      --pure-white: #FFFFFF;
+      --soft-gray: #F8F9FA;
+      --light-gray: #E9ECEF;
+      --medium-gray: #6C757D;
+      --dark-gray: #212529;
+      --accent-blue: #007BFF;
+      --subtle-shadow: rgba(0, 0, 0, 0.05);
+      --text-shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--pure-white);
+      color: var(--dark-gray);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Minimal Navigation */
+    .minimal-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--light-gray);
+      z-index: 1000;
+      padding: 1.5rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .nav-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .minimal-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--dark-gray);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .minimal-menu {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .minimal-nav-item {
+      color: var(--medium-gray);
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .minimal-nav-item:hover {
+      color: var(--dark-gray);
+    }
+
+    .minimal-nav-item::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 1px;
+      background: var(--accent-blue);
+      transition: width 0.3s ease;
+    }
+
+    .minimal-nav-item:hover::after {
+      width: 100%;
+    }
+
+    /* Main Content */
+    main {
+      padding-top: 100px;
+      position: relative;
+    }
+
+    /* Minimal Sections */
+    .minimal-section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .minimal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 400;
+      color: var(--dark-gray);
+      text-align: center;
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .minimal-subtitle {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--medium-gray);
+      text-align: center;
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .minimal-text {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--dark-gray);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* Divider */
+    .minimal-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--light-gray);
+      margin: 4rem auto;
+    }
+
+    /* Cards */
+    .minimal-card {
+      background: var(--pure-white);
+      border: 1px solid var(--light-gray);
+      border-radius: 8px;
+      padding: 3rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 10px var(--subtle-shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .minimal-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--subtle-shadow);
+    }
+
+    /* Buttons */
+    .minimal-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--dark-gray);
+      color: var(--pure-white);
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 400;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .minimal-button:hover {
+      background: var(--medium-gray);
+      transform: translateY(-1px);
+    }
+
+    .minimal-button.outline {
+      background: transparent;
+      color: var(--dark-gray);
+      border: 1px solid var(--light-gray);
+    }
+
+    .minimal-button.outline:hover {
+      background: var(--soft-gray);
+    }
+
+    /* Footer */
+    .minimal-footer {
+      background: var(--soft-gray);
+      border-top: 1px solid var(--light-gray);
+      padding: 4rem 0 2rem;
+      text-align: center;
+      margin-top: 6rem;
+    }
+
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .footer-text {
+      font-size: 0.9rem;
+      color: var(--medium-gray);
+      margin-bottom: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-link {
+      color: var(--medium-gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--dark-gray);
+    }
+
+    .footer-copyright {
+      font-size: 0.8rem;
+      color: var(--medium-gray);
+      padding-top: 2rem;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    /* Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .minimal-menu {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .nav-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .minimal-section {
+        padding: 4rem 0;
+      }
+
+      .minimal-card {
+        padding: 2rem;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    /* Focus states for accessibility */
+    .minimal-nav-item:focus,
+    .minimal-button:focus,
+    .footer-link:focus {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Minimal Navigation -->
+  <nav class="minimal-nav">
+    <div class="nav-wrapper">
+      <a href="/" class="minimal-logo">MARU</a>
+      <div class="minimal-menu">
+        <a href="#about" class="minimal-nav-item">About</a>
+        <a href="#works" class="minimal-nav-item">Works</a>
+        <a href="#contact" class="minimal-nav-item">Contact</a>
+        <a href="/" class="minimal-nav-item">Default Mode</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    {{ content }}
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="minimal-footer">
+    <div class="footer-content">
+      <p class="footer-text">
+        シンプルで美しい、機能的なデザインを追求しています。
+      </p>
+      <div class="footer-links">
+        <a href="mailto:{{ site.email }}" class="footer-link">Email</a>
+        <a href="https://twitter.com/{{ site.twitter_username }}" class="footer-link">Twitter</a>
+        <a href="/horror.html" class="footer-link">Horror Mode</a>
+      </div>
+      <p class="footer-copyright">
+        &copy; 2025 {{ site.title }} - Minimal Mode. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Fade in animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('.minimal-section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Add subtle parallax effect to title
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const title = document.querySelector('.minimal-title');
+      if (title) {
+        title.style.transform = `translateY(${scrolled * 0.1}px)`;
+      }
+    });
+  </script>
+</body>
+</html>

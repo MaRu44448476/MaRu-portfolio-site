@@ -1,289 +1,587 @@
 ---
-layout: default
+layout: cyberpunk
 lang: ja
 ---
 
-{% assign t = site.data.translations[page.lang] %}
+<!-- Hero Section with Glitch Effect -->
+<section class="hero-cyber">
+  <div class="hero-background">
+    <div class="grid-overlay"></div>
+    <div class="particle-field" id="particles"></div>
+  </div>
+  
+  <div class="hero-content">
+    <h1 class="hero-title glitch" data-text="DIGITAL CREATOR">
+      DIGITAL CREATOR
+    </h1>
+    <p class="hero-subtitle typing-effect">
+      <span class="typing-text">Creating Digital Experiences</span>
+      <span class="cursor-blink">|</span>
+    </p>
+    <div class="hero-cta">
+      <a href="#works" class="neon-button">
+        <span>VIEW WORKS</span>
+        <div class="button-glow"></div>
+      </a>
+    </div>
+  </div>
+  
+  <div class="scroll-indicator-arrow">
+    <svg width="30" height="30" viewBox="0 0 30 30">
+      <polyline points="7,10 15,18 23,10" stroke="currentColor" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+</section>
 
-<!-- Hero Section -->
-<section class="hero section">
+<!-- About Section with Parallax -->
+<section class="about-cyber section" id="about">
   <div class="container">
-    <div class="hero-content text-center">
-      <h1 class="hero-title fade-in">{{ t.site_title }}</h1>
-      <p class="hero-tagline fade-in">{{ t.tagline }}</p>
-      <div class="hero-actions fade-in">
-        <a href="/works/" class="btn">{{ t.view_works }}</a>
-        <a href="#contact" class="btn btn-outline">{{ t.contact_button }}</a>
+    <div class="about-grid">
+      <div class="about-text parallax-element" data-speed="0.5">
+        <h2 class="section-title neon-text reveal">
+          <span>WHO</span> <span class="accent">AM I</span>
+        </h2>
+        <p class="lead-text reveal">
+          デジタル空間で創造性を解き放つクリエイター。
+          ウェブデザイン、UI/UX、そしてインタラクティブな体験を通じて、
+          未来のビジョンを現実に変える。
+        </p>
+        <div class="skills-grid reveal">
+          <div class="skill-item hover-glow">Web Design</div>
+          <div class="skill-item hover-glow">UI/UX</div>
+          <div class="skill-item hover-glow">Motion Graphics</div>
+          <div class="skill-item hover-glow">3D Design</div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="profile-container magnetic-area">
+          <div class="profile-frame magnetic-content">
+            <img src="/assets/images/profile.jpg" alt="Profile" class="profile-image">
+            <div class="profile-overlay"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Services Section -->
-<section class="services section">
+<!-- Works Gallery with Magnetic Effect -->
+<section class="works-cyber section" id="works">
   <div class="container">
-    <h2 class="section-title text-center mb-3 fade-in">{{ t.services }}</h2>
-    <div class="services-grid">
-      <div class="service-card fade-in">
-        <div class="service-icon">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="9" y1="9" x2="15" y2="9"></line>
-            <line x1="9" y1="13" x2="15" y2="13"></line>
-            <line x1="9" y1="17" x2="13" y2="17"></line>
-          </svg>
-        </div>
-        <h3 class="service-title">{{ t.web_design }}</h3>
-        <p class="service-description">ユーザビリティとデザイン性を両立したWebサイトを制作します</p>
-      </div>
-      
-      <div class="service-card fade-in">
-        <div class="service-icon">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-          </svg>
-        </div>
-        <h3 class="service-title">{{ t.blog_writing }}</h3>
-        <p class="service-description">SEOを意識した質の高いコンテンツを作成します</p>
-      </div>
-      
-      <div class="service-card fade-in">
-        <div class="service-icon">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
-          </svg>
-        </div>
-        <h3 class="service-title">{{ t.lp_creation }}</h3>
-        <p class="service-description">コンバージョンを重視したランディングページを制作します</p>
-      </div>
+    <h2 class="section-title text-center neon-text reveal">
+      <span>SELECTED</span> <span class="accent">WORKS</span>
+    </h2>
+    
+    <div class="works-filter reveal">
+      <button class="filter-btn active" data-filter="all">ALL</button>
+      <button class="filter-btn" data-filter="web">WEB</button>
+      <button class="filter-btn" data-filter="ui">UI/UX</button>
+      <button class="filter-btn" data-filter="motion">MOTION</button>
     </div>
-  </div>
-</section>
-
-<!-- Latest Works Section -->
-<section class="works-preview section">
-  <div class="container">
-    <h2 class="section-title text-center mb-3 fade-in">{{ t.latest_works }}</h2>
-    <div class="works-grid">
-      {% for work in site.works limit:3 %}
-        <article class="work-card fade-in">
-          <a href="{{ work.url | relative_url }}" class="work-link">
-            <div class="work-image">
-              <img src="{{ work.thumbnail | default: '/assets/images/placeholder.jpg' }}" alt="{{ work.title }}">
+    
+    <div class="works-gallery">
+      {% assign works = site.works | limit: 6 %}
+      {% for work in works %}
+      <div class="work-item magnetic-area" data-category="{{ work.category | downcase }}">
+        <div class="work-inner magnetic-content">
+          <div class="work-image">
+            <img src="{{ work.image | default: '/assets/images/placeholder.jpg' }}" alt="{{ work.title }}">
+            <div class="work-overlay">
+              <div class="overlay-content">
+                <h3>{{ work.title }}</h3>
+                <p>{{ work.category }}</p>
+                <a href="{{ work.url }}" class="work-link">View Project</a>
+              </div>
             </div>
-            <div class="work-info">
-              <h3 class="work-title">{{ work.title }}</h3>
-              <p class="work-category">{{ work.category }}</p>
-            </div>
-          </a>
-        </article>
+          </div>
+        </div>
+      </div>
       {% endfor %}
-    </div>
-    <div class="text-center mt-3">
-      <a href="/works/" class="btn">{{ t.view_all_works }}</a>
     </div>
   </div>
 </section>
 
 <!-- Contact Section -->
-<section id="contact" class="contact section">
+<section class="contact-cyber section" id="contact">
   <div class="container">
-    <div class="contact-content text-center fade-in">
-      <h2 class="section-title mb-2">{{ t.contact_cta }}</h2>
-      <p class="contact-description mb-3">お仕事のご依頼・ご相談はお気軽にDMでご連絡ください</p>
-      <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener noreferrer" class="btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 0.5rem;">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-        </svg>
-        {{ t.contact_button }}
-      </a>
+    <div class="contact-content text-center">
+      <h2 class="section-title glitch reveal" data-text="LET'S CONNECT">
+        LET'S CONNECT
+      </h2>
+      <p class="contact-text reveal">
+        新しいプロジェクトやコラボレーションについて話しましょう
+      </p>
+      <div class="contact-links reveal">
+        <a href="https://twitter.com/{{ site.twitter_username }}" class="contact-link hover-glow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          Twitter
+        </a>
+        <a href="mailto:{{ site.email }}" class="contact-link hover-glow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <path d="m22 7-10 5L2 7"></path>
+          </svg>
+          Email
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
 /* Hero Section */
-.hero {
-  min-height: 60vh;
+.hero-cyber {
+  position: relative;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  background-color: #fafafa;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 217, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 217, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: grid-move 10s linear infinite;
+}
+
+@keyframes grid-move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
 }
 
 .hero-content {
-  max-width: 800px;
-  margin: 0 auto;
+  text-align: center;
+  z-index: 2;
 }
 
 .hero-title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  
-  @media (max-width: 767px) {
-    font-size: 2rem;
-  }
-}
-
-.hero-tagline {
-  font-size: 1.25rem;
-  color: #666;
-  margin-bottom: 2rem;
-  
-  @media (max-width: 767px) {
-    font-size: 1rem;
-  }
-}
-
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* Services Section */
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  
-  @media (max-width: 767px) {
-    font-size: 2rem;
-  }
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.service-card {
-  text-align: center;
-  padding: 2rem;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-5px);
-  }
-}
-
-.service-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  height: 80px;
-  background-color: #f0f7ff;
-  border-radius: 50%;
-  margin-bottom: 1.5rem;
-  color: #4a90e2;
-}
-
-.service-title {
-  font-size: 1.5rem;
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
   margin-bottom: 1rem;
+  background: linear-gradient(45deg, #257985, #5EA8A7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.service-description {
-  color: #666;
-  line-height: 1.8;
-}
-
-/* Works Preview Section */
-.works-preview {
-  background-color: #fafafa;
-}
-
-.works-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 3rem;
 }
 
-.work-card {
-  background-color: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.typing-effect {
+  display: inline-block;
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Neon Button */
+.neon-button {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #257985;
+  background: transparent;
+  border: 2px solid #257985;
   transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-  }
-}
-
-.work-link {
-  display: block;
-  color: inherit;
-  
-  &:hover {
-    color: inherit;
-  }
-}
-
-.work-image {
-  aspect-ratio: 16/9;
   overflow: hidden;
-  
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-  
-  &:hover img {
-    transform: scale(1.05);
-  }
 }
 
-.work-info {
-  padding: 1.5rem;
+.neon-button:hover {
+  color: #ffffff;
+  background: #257985;
+  box-shadow: 
+    0 0 20px #257985,
+    0 0 40px #257985,
+    0 0 60px #257985;
 }
 
-.work-title {
+.button-glow {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #257985, #5EA8A7, #257985);
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.neon-button:hover .button-glow {
+  opacity: 1;
+}
+
+/* Scroll Indicator */
+.scroll-indicator-arrow {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #00d9ff;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* About Section */
+.about-cyber {
+  position: relative;
+  padding: 100px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  margin-bottom: 2rem;
+}
+
+.section-title .accent {
+  color: #FF4447;
+}
+
+.lead-text {
   font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
 }
 
-.work-category {
-  color: #666;
-  font-size: 0.875rem;
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
 }
 
-/* Contact Section */
-.contact-content {
-  max-width: 600px;
+.skill-item {
+  padding: 1rem;
+  border: 1px solid rgba(0, 217, 255, 0.3);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  border-color: #257985;
+  background: rgba(37, 121, 133, 0.1);
+}
+
+/* Profile */
+.profile-container {
+  position: relative;
+}
+
+.profile-frame {
+  position: relative;
+  width: 400px;
+  height: 400px;
   margin: 0 auto;
 }
 
-.contact-description {
-  font-size: 1.125rem;
-  color: #666;
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.2);
+  transition: filter 0.3s ease;
 }
 
-/* Animations */
-.fade-in {
+.profile-frame:hover .profile-image {
+  filter: grayscale(0%) contrast(1);
+}
+
+.profile-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0, 217, 255, 0.3), rgba(255, 0, 110, 0.3));
+  mix-blend-mode: screen;
+}
+
+/* Works Section */
+.works-cyber {
+  padding: 100px 0;
+  background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.05));
+}
+
+.works-filter {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 2rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  border-color: #FF4447;
+  color: #FF4447;
+  background: rgba(255, 68, 71, 0.1);
+}
+
+/* Works Gallery */
+.works-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  grid-auto-rows: 300px;
+}
+
+.work-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.work-item.large {
+  grid-row: span 2;
+}
+
+.work-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.work-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.work-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.work-item:hover .work-image img {
+  transform: scale(1.1);
+}
+
+.work-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.9));
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
 }
 
-.fade-in-visible {
+.work-item:hover .work-overlay {
+  opacity: 1;
+}
+
+.overlay-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.overlay-content p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+.work-link {
+  color: #00d9ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.work-link:hover {
+  color: #FF4447;
+}
+
+/* Contact Section */
+.contact-cyber {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.contact-text {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3rem;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  border-color: #257985;
+  color: #257985;
+  transform: translateY(-2px);
+}
+
+/* Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal.revealed {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Utility */
-.mt-3 {
-  margin-top: 3rem;
+/* Responsive */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .profile-frame {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .works-gallery {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 </style>
+
+<!-- Include Cyberpunk JS -->
+<script src="/assets/js/cyberpunk.js"></script>
+
+<!-- Particle Animation -->
+<script>
+// Simple particle system with tech colors
+const particleContainer = document.getElementById('particles');
+const particleCount = 50;
+
+// Modern tech color palette 
+const techColors = [
+  '#257985',  // Saltwater teal
+  '#5EA8A7',  // Lagoon teal
+  '#FF4447',  // Raspberry red
+  '#3a6b70',  // Muted teal
+  '#ffffff',  // Clean white
+];
+
+for (let i = 0; i < particleCount; i++) {
+  const particle = document.createElement('div');
+  const color = techColors[Math.floor(Math.random() * techColors.length)];
+  
+  particle.className = 'particle';
+  particle.style.cssText = `
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: ${color};
+    box-shadow: 0 0 10px ${color};
+    left: ${Math.random() * 100}%;
+    top: ${Math.random() * 100}%;
+    animation: float ${5 + Math.random() * 10}s linear infinite;
+  `;
+  particleContainer.appendChild(particle);
+}
+
+// Add floating animation
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+  }
+`;
+document.head.appendChild(style);
+
+// Typing effect
+const typingText = document.querySelector('.typing-text');
+const text = typingText.textContent;
+typingText.textContent = '';
+let i = 0;
+
+function typeWriter() {
+  if (i < text.length) {
+    typingText.textContent += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 100);
+  }
+}
+
+setTimeout(typeWriter, 1000);
+</script>

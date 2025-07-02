@@ -10,7 +10,7 @@ description: >-
   フリーランスのWebデザイナー・ブロガーです。LP制作、ブログ執筆、Webデザインのご依頼を承っています。
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://maru-vive.com" # the base hostname & protocol for your site, e.g. http://example.com
-version: "1.1.0"
+version: "1.2.0"
 twitter_username: Maru44448476
 github_username:  your_github_username
 

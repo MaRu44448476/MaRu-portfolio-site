@@ -1,0 +1,269 @@
+// Modern Color Palette
+$cyber-black: #0a0a0a;
+$cyber-dark: #121212;
+$cyber-gray: #1a1a1a;
+$cyber-white: #ffffff;
+$saltwater: #257985;      // Main teal
+$lagoon: #5EA8A7;         // Light teal
+$whitewash: #ffffff;      // Clean white
+$raspberry: #FF4447;      // Accent red
+$muted-teal: #3a6b70;     // Darker teal variant
+
+// Gradients
+$gradient-teal: linear-gradient(135deg, $saltwater 0%, $lagoon 100%);
+$gradient-accent: linear-gradient(135deg, $raspberry 0%, $saltwater 100%);
+$gradient-dark: linear-gradient(180deg, $cyber-black 0%, $cyber-gray 100%);
+
+// Base Dark Theme
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: auto !important;
+}
+
+body {
+  background-color: $cyber-black;
+  color: $cyber-white;
+  font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba($saltwater, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba($lagoon, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba($raspberry, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+// Special cursor styles for interactive elements
+a, button, .hover-target {
+  cursor: pointer !important;
+}
+
+// Glitch Effect
+@keyframes glitch {
+  0%, 100% {
+    text-shadow: 
+      0.05em 0 0 rgba($raspberry, 0.75),
+      -0.05em -0.025em 0 rgba($saltwater, 0.75),
+      0.025em 0.05em 0 rgba($lagoon, 0.75);
+  }
+  14% {
+    text-shadow: 
+      0.05em 0 0 rgba($raspberry, 0.75),
+      -0.05em -0.025em 0 rgba($saltwater, 0.75),
+      0.025em 0.05em 0 rgba($lagoon, 0.75);
+  }
+  15% {
+    text-shadow: 
+      -0.05em -0.025em 0 rgba($raspberry, 0.75),
+      0.025em 0.025em 0 rgba($saltwater, 0.75),
+      -0.05em -0.05em 0 rgba($lagoon, 0.75);
+  }
+  49% {
+    text-shadow: 
+      -0.05em -0.025em 0 rgba($raspberry, 0.75),
+      0.025em 0.025em 0 rgba($saltwater, 0.75),
+      -0.05em -0.05em 0 rgba($lagoon, 0.75);
+  }
+  50% {
+    text-shadow: 
+      0.025em 0.05em 0 rgba($raspberry, 0.75),
+      0.05em 0 0 rgba($saltwater, 0.75),
+      0 -0.05em 0 rgba($lagoon, 0.75);
+  }
+  99% {
+    text-shadow: 
+      0.025em 0.05em 0 rgba($raspberry, 0.75),
+      0.05em 0 0 rgba($saltwater, 0.75),
+      0 -0.05em 0 rgba($lagoon, 0.75);
+  }
+}
+
+.glitch {
+  position: relative;
+  animation: glitch 2s ease-in-out infinite alternate-reverse;
+  
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  &::before {
+    animation: glitch-1 0.5s ease-in-out infinite alternate-reverse;
+    color: $raspberry;
+    z-index: -1;
+  }
+  
+  &::after {
+    animation: glitch-2 0.5s ease-in-out infinite alternate-reverse;
+    color: $saltwater;
+    z-index: -2;
+  }
+}
+
+@keyframes glitch-1 {
+  0%, 100% {
+    clip-path: inset(20% 0 30% 0);
+    transform: translate(-2px, 0);
+  }
+  20% {
+    clip-path: inset(10% 0 40% 0);
+    transform: translate(2px, 0);
+  }
+  40% {
+    clip-path: inset(50% 0 10% 0);
+    transform: translate(-2px, 0);
+  }
+  60% {
+    clip-path: inset(30% 0 20% 0);
+    transform: translate(2px, 0);
+  }
+  80% {
+    clip-path: inset(40% 0 5% 0);
+    transform: translate(-2px, 0);
+  }
+}
+
+@keyframes glitch-2 {
+  0%, 100% {
+    clip-path: inset(40% 0 20% 0);
+    transform: translate(2px, -1px);
+  }
+  20% {
+    clip-path: inset(20% 0 40% 0);
+    transform: translate(-2px, 1px);
+  }
+  40% {
+    clip-path: inset(5% 0 50% 0);
+    transform: translate(2px, -1px);
+  }
+  60% {
+    clip-path: inset(20% 0 30% 0);
+    transform: translate(-2px, 1px);
+  }
+  80% {
+    clip-path: inset(30% 0 10% 0);
+    transform: translate(2px, -1px);
+  }
+}
+
+// Neon Text
+.neon-text {
+  text-shadow: 
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor,
+    0 0 40px currentColor;
+}
+
+// Hover Effects
+.hover-glow {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    text-shadow: 
+      0 0 10px $saltwater,
+      0 0 20px $saltwater,
+      0 0 30px $saltwater,
+      0 0 40px $saltwater;
+    transform: translateY(-2px);
+  }
+}
+
+// Parallax Container
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-element {
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+// Magnetic Effect
+.magnetic-area {
+  position: relative;
+  
+  .magnetic-content {
+    transition: transform 0.3s ease-out;
+  }
+}
+
+// Page Transition
+.page-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $gradient-teal;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+// Smooth Scroll Indicator
+.scroll-indicator {
+  position: fixed;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  z-index: 100;
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba($cyber-white, 0.3);
+    margin: 15px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &.active {
+      background: $saltwater;
+      box-shadow: 0 0 10px $saltwater;
+    }
+    
+    &:hover {
+      background: $raspberry;
+      transform: scale(1.5);
+    }
+  }
+}
+
+// Noise Overlay
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.03;
+  z-index: 2;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgbnVtT2N0YXZlcz0iMTAiIC8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIiAvPjwvc3ZnPg==');
+}

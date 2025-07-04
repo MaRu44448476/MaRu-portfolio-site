@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'ja' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  
+  <!-- Retro Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Orbitron:wght@400;700;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
+  <!-- SEO Tags -->
+  {% seo %}
+  
+  <!-- Analytics -->
+  {% if site.google_analytics %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+  {% endif %}
+</head>
+
+<body>
+  <!-- Retro Navigation -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="/" class="logo retro-heading">{{ site.title | default: "MaRu" }}</a>
+      
+      <div class="nav-menu" id="nav-menu">
+        <a href="/#about" class="nav-link retro-subheading">About</a>
+        <a href="/#works" class="nav-link retro-subheading">Works</a>
+        <a href="/#contact" class="nav-link retro-subheading">Contact</a>
+        {% if page.lang != 'en' %}
+        <a href="/en/" class="nav-link retro-subheading">EN</a>
+        {% else %}
+        <a href="/" class="nav-link retro-subheading">JP</a>
+        {% endif %}
+      </div>
+      
+      <div class="nav-toggle" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    {{ content }}
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="https://x.com/Maru44448476" target="_blank" rel="noopener noreferrer" class="footer-link">
+            X (Twitter)
+          </a>
+          <a href="https://note.com/maru4444" target="_blank" rel="noopener noreferrer" class="footer-link">
+            NOTE
+          </a>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; 2024 {{ site.title }}. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Retro JavaScript -->
+  <script>
+    // Mobile Navigation Toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking on nav links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // Retro Animation Observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all fade-in and slide-in elements
+    document.querySelectorAll('.retro-fade-in, .retro-slide-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Filter functionality for works
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const workItems = document.querySelectorAll('.work-item');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Filter work items
+        workItems.forEach(item => {
+          const category = item.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            item.style.display = 'block';
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            }, 100);
+          } else {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              item.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+
+    // Smooth scrolling for retro buttons
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Retro typing effect for hero subtitle (optional enhancement)
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    if (heroSubtitle && !heroSubtitle.classList.contains('typed')) {
+      const text = heroSubtitle.textContent;
+      heroSubtitle.textContent = '';
+      heroSubtitle.classList.add('typed');
+      
+      let i = 0;
+      const typeWriter = () => {
+        if (i < text.length) {
+          heroSubtitle.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, 100);
+        }
+      };
+      
+      setTimeout(typeWriter, 1000);
+    }
+
+    // Parallax effect for retro background elements
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * -0.5;
+      
+      const backgrounds = document.querySelectorAll('.hero-retro::before');
+      backgrounds.forEach(bg => {
+        bg.style.transform = `translateY(${rate}px)`;
+      });
+    });
+
+    // Add scroll indicator
+    const scrollIndicator = document.createElement('div');
+    scrollIndicator.className = 'scroll-indicator';
+    scrollIndicator.innerHTML = '↑';
+    scrollIndicator.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    document.body.appendChild(scrollIndicator);
+
+    // Show/hide scroll indicator
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollIndicator.style.opacity = '1';
+        scrollIndicator.style.visibility = 'visible';
+      } else {
+        scrollIndicator.style.opacity = '0';
+        scrollIndicator.style.visibility = 'hidden';
+      }
+    });
+  </script>
+
+  <style>
+    /* Additional retro navigation styles */
+    .site-header {
+      background: rgba(253, 246, 227, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 3px solid #D2691E;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #D2691E;
+      text-decoration: none;
+      text-shadow: 2px 2px 0 #8B4513;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: #654321;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(135deg, #D2691E 0%, #B7410E 100%);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+
+    .nav-toggle span {
+      width: 25px;
+      height: 3px;
+      background: #D2691E;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile Navigation */
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #FDF6E3;
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1rem;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        border-bottom: 3px solid #D2691E;
+      }
+
+      .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+    }
+
+    /* Footer Styles */
+    .site-footer {
+      background: #F5F5DC;
+      border-top: 3px solid #D2691E;
+      padding: 3rem 0 1rem;
+      margin-top: 5rem;
+    }
+
+    .footer-content {
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-link {
+      color: #654321;
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: #D2691E;
+      text-shadow: 1px 1px 0 #8B4513;
+    }
+
+    .footer-bottom p {
+      color: #8B4513;
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</body>
+</html>

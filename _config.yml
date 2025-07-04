@@ -4,13 +4,13 @@
 # which you are expected to set up once and rarely edit after that.
 
 # Site settings
-title: フリーランス Webデザイナー・ブロガー
+title: MaRu - AI×Web Design Creative Studio
 email: tkmr.3aeau@gmail.com
 description: >-
-  フリーランスのWebデザイナー・ブロガーです。LP制作、ブログ執筆、Webデザインのご依頼を承っています。
+  AIにのめり込む30代。テクノロジーとクリエイティビティの融合を追求し、最新のAI技術を活用したWebデザインやコンテンツ制作を手がけています。日々進化するデジタル世界で、人とテクノロジーをつなぐ架け橋となることを目指しています。
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://maru-vive.com" # the base hostname & protocol for your site, e.g. http://example.com
-version: "1.3.0"
+version: "2.0.0"
 twitter_username: Maru44448476
 github_username:  your_github_username
 
@@ -46,12 +46,12 @@ paginate_path: "/works/page:num/"
 
 # SEO
 lang: ja
-author: Your Name
+author: MaRu
 social:
-  name: Your Name
+  name: MaRu
   links:
-    - https://twitter.com/your_twitter_username
-    - https://note.com/your_note_username
+    - https://x.com/Maru44448476
+    - https://note.com/maru4444
 
 # Analytics
 google_analytics: G-NZRXQQ8WSZ

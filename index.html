@@ -1,122 +1,105 @@
 ---
-layout: minimal
+layout: default
 lang: ja
 ---
 
+
 <!-- Hero Section -->
-<section class="minimal-section">
+<section class="hero-simple section">
   <div class="container">
-    <h1 class="minimal-title">
-      フリーランス<br>Webデザイナー・ブロガー
-    </h1>
-    <p class="minimal-subtitle">
-      シンプルで美しい、機能的なデザインを通じて<br>
-      あなたのビジョンを現実に変えます。
-    </p>
-    <div style="text-align: center;">
-      <a href="#works" class="minimal-button">作品を見る</a>
-      <a href="#contact" class="minimal-button outline" style="margin-left: 1rem;">お問い合わせ</a>
+    <div class="hero-content">
+      <h1 class="hero-title fade-in">
+        MaRu - AI×Web Design Creative Studio
+      </h1>
+      <p class="hero-subtitle fade-in">
+        AI技術とクリエイティビティで、未来のデジタル体験を創造します
+      </p>
+      <div class="hero-cta fade-in">
+        <a href="#works" class="btn">
+          作品を見る
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- About Section -->
-<section class="minimal-section" id="about">
+<section class="about-simple section" id="about">
   <div class="container">
-    <div class="minimal-divider"></div>
-    <h2 class="minimal-title" style="font-size: 2.5rem;">About</h2>
-    <div class="minimal-card">
-      <div class="minimal-text">
-        <p style="margin-bottom: 2rem;">
-          デジタル領域において、クリーンで機能的なデザインを追求するクリエイターです。
-          複雑さを削ぎ落とし、本質的な美しさと使いやすさを両立させることを信念としています。
+    <h2 class="section-title fade-in">About</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="lead-text fade-in">
+          AIにのめり込む30代。テクノロジーとクリエイティビティの融合を追求し、
+          最新のAI技術を活用したWebデザインやコンテンツ制作を手がけています。
+          日々進化するデジタル世界で、人とテクノロジーをつなぐ架け橋となることを目指しています。
         </p>
-        <p style="margin-bottom: 2rem;">
-          LP制作、ブログ執筆、Webデザインを通じて、
-          お客様のメッセージを明確かつ効果的に伝えるお手伝いをいたします。
-        </p>
-        <p>
-          <strong>専門分野:</strong> Web Design / UI/UX / Content Creation / Blog Writing
-        </p>
+        <div class="skills-grid fade-in">
+          <div class="skill-item">Web Design</div>
+          <div class="skill-item">UI/UX</div>
+          <div class="skill-item">AI Integration</div>
+          <div class="skill-item">Content Creation</div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="profile-container fade-in">
+          <div class="profile-frame">
+            <img src="/assets/images/profile.jpg" alt="Profile" class="profile-image">
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Works Section -->
-<section class="minimal-section" id="works">
+<!-- Works Gallery -->
+<section class="works-simple section" id="works">
   <div class="container">
-    <div class="minimal-divider"></div>
-    <h2 class="minimal-title" style="font-size: 2.5rem;">Selected Works</h2>
-    <p class="minimal-subtitle">厳選した制作実績をご紹介します</p>
+    <h2 class="section-title fade-in">Selected Works</h2>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
-      {% assign works = site.works | limit: 6 %}
-      {% for work in works %}
-      <div class="minimal-card">
-        <div style="aspect-ratio: 16/10; background: var(--soft-gray); border-radius: 4px; margin-bottom: 1.5rem; overflow: hidden;">
-          {% if work.image %}
-            <img src="{{ work.image }}" alt="{{ work.title }}" style="width: 100%; height: 100%; object-fit: cover;">
-          {% else %}
-            <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--medium-gray);">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                <circle cx="9" cy="9" r="2"/>
-                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
-              </svg>
-            </div>
-          {% endif %}
-        </div>
-        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--saltwater);">
-          {{ work.title }}
-        </h3>
-        <p style="color: var(--raspberry); font-size: 0.9rem; margin-bottom: 1rem; font-weight: 500;">
-          {{ work.category | default: "Web Design" }}
-        </p>
-        <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">
-          {{ work.excerpt | default: work.content | truncatewords: 15 }}
-        </p>
-        {% if work.url %}
-        <a href="{{ work.url }}" class="minimal-button outline" style="font-size: 0.8rem; padding: 0.75rem 1.5rem;">
-          詳細を見る
-        </a>
-        {% endif %}
-      </div>
-      {% endfor %}
+    <div class="works-filter fade-in">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="ui">UI/UX</button>
+      <button class="filter-btn" data-filter="ai">AI</button>
     </div>
     
-    <div style="text-align: center; margin-top: 3rem;">
-      <a href="/works.html" class="minimal-button">すべての作品を見る</a>
+    <div class="works-gallery">
+      {% assign works = site.works | limit: 6 %}
+      {% for work in works %}
+      <div class="work-item" data-category="{{ work.category | downcase }}">
+        <div class="work-inner">
+          <div class="work-image">
+            <img src="{{ work.image | default: '/assets/images/placeholder.jpg' }}" alt="{{ work.title }}">
+            <div class="work-overlay">
+              <div class="overlay-content">
+                <h3>{{ work.title }}</h3>
+                <p>{{ work.category }}</p>
+                <a href="{{ work.url }}" class="work-link">View Project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
 
 <!-- Contact Section -->
-<section class="minimal-section" id="contact">
+<section class="contact-simple section" id="contact">
   <div class="container">
-    <div class="minimal-divider"></div>
-    <h2 class="minimal-title" style="font-size: 2.5rem;">Contact</h2>
-    <div class="minimal-card" style="max-width: 600px; margin: 0 auto;">
-      <div class="minimal-text">
-        <p style="margin-bottom: 2rem;">
-          プロジェクトのご相談、お見積もり、その他のお問い合わせは<br>
-          お気軽にご連絡ください。
-        </p>
-        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-          <a href="mailto:{{ site.email }}" class="minimal-button">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem; vertical-align: text-bottom;">
-              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-              <path d="m22 7-10 5L2 7"></path>
-            </svg>
-            Email
-          </a>
-          <a href="https://twitter.com/{{ site.twitter_username }}" class="minimal-button outline">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 0.5rem; vertical-align: text-bottom;">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-            Twitter
-          </a>
-        </div>
+    <div class="contact-content">
+      <h2 class="section-title fade-in">
+        Contact
+      </h2>
+      <p class="contact-text fade-in">
+        新しいプロジェクトやコラボレーションについて話しましょう
+      </p>
+      <div class="contact-links fade-in">
+        <a href="https://x.com/Maru44448476" target="_blank" rel="noopener noreferrer" class="contact-link">
+          XのDMまで
+        </a>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 ja:
-  site_title: "フリーランス Webデザイナー・ブロガー"
-  tagline: "あなたのビジネスに最適なWebソリューションを提供します"
+  site_title: "MaRu - AI×Web Design Creative Studio"
+  tagline: "AI技術とクリエイティビティで、未来のデジタル体験を創造します"
   view_works: "作品を見る"
   services: "サービス"
   latest_works: "最新の作品"
@@ -13,12 +13,12 @@ ja:
   web_design: "Webデザイン"
   blog_writing: "ブログ執筆"
   lp_creation: "LP制作"
-  footer_copyright: "© 2024 All rights reserved."
+  footer_copyright: "© 2025 MaRu. All rights reserved."
   language: "言語"
   
 en:
-  site_title: "Freelance Web Designer & Blogger"
-  tagline: "Providing optimal web solutions for your business"
+  site_title: "MaRu - AI×Web Design Creative Studio"
+  tagline: "Creating future digital experiences with AI technology and creativity"
   view_works: "View Works"
   services: "Services"
   latest_works: "Latest Works"
@@ -31,5 +31,5 @@ en:
   web_design: "Web Design"
   blog_writing: "Blog Writing"
   lp_creation: "Landing Page Creation"
-  footer_copyright: "© 2024 All rights reserved."
+  footer_copyright: "© 2025 MaRu. All rights reserved."
   language: "Language"

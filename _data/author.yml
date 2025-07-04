@@ -1,0 +1,45 @@
+ja:
+  name: "MaRu"
+  title: "AI×Web Design Creative"
+  bio_short: "AIにのめり込む30代。テクノロジーとクリエイティビティの融合を追求。"
+  bio_full: >
+    AIにのめり込む30代。テクノロジーとクリエイティビティの融合を追求し、
+    最新のAI技術を活用したWebデザインやコンテンツ制作を手がけています。
+    日々進化するデジタル世界で、人とテクノロジーをつなぐ架け橋となることを目指しています。
+  bio_professional: >
+    AI技術を駆使したクリエイティブディレクター兼Webデザイナーとして活動しています。
+    従来のデザイン手法にAIツールを組み合わせることで、効率的かつ革新的なWebソリューションを提供。
+    特に、AI画像生成、自然言語処理を活用したコンテンツ制作、データドリブンなUI/UXデザインを得意としています。
+    
+    技術とアートの交差点で、次世代のデジタル体験を創造し続けています。
+  specialties:
+    - "AI駆動型Webデザイン"
+    - "生成AI活用コンテンツ制作"
+    - "データドリブンUI/UX"
+    - "インタラクティブWeb体験"
+  social:
+    x: "https://x.com/Maru44448476"
+    note: "https://note.com/maru4444"
+
+en:
+  name: "MaRu"
+  title: "AI×Web Design Creative"
+  bio_short: "A 30-something deeply immersed in AI. Pursuing the fusion of technology and creativity."
+  bio_full: >
+    A 30-something deeply immersed in AI. Pursuing the fusion of technology and creativity,
+    I create web designs and content using cutting-edge AI technology.
+    In this evolving digital world, I aim to be a bridge connecting people and technology.
+  bio_professional: >
+    Working as a creative director and web designer leveraging AI technology.
+    By combining traditional design methods with AI tools, I provide efficient and innovative web solutions.
+    Specializing in AI image generation, content creation using natural language processing, and data-driven UI/UX design.
+    
+    Continuing to create next-generation digital experiences at the intersection of technology and art.
+  specialties:
+    - "AI-Driven Web Design"
+    - "Generative AI Content Creation"
+    - "Data-Driven UI/UX"
+    - "Interactive Web Experiences"
+  social:
+    x: "https://x.com/Maru44448476"
+    note: "https://note.com/maru4444"

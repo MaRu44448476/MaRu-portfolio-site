@@ -9,31 +9,19 @@
   <div class="container">
     <nav class="navbar">
       <a href="{{ '/' | relative_url }}" class="logo">
-        <span class="logo-text">{{ t.site_title }}</span>
+        MaRu
       </a>
       
-      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+      <div class="nav-toggle">
         <span></span>
         <span></span>
         <span></span>
-      </button>
+      </div>
       
       <div class="nav-menu">
-        <ul class="nav-list">
-          {% for item in nav %}
-            <li class="nav-item">
-              <a href="{{ item.url | relative_url }}" class="nav-link">{{ item.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-        
-        <div class="lang-switcher">
-          {% if page.lang == 'en' %}
-            <a href="{{ page.url | replace: '/en/', '/' }}" class="lang-link">日本語</a>
-          {% else %}
-            <a href="/en{{ page.url }}" class="lang-link">English</a>
-          {% endif %}
-        </div>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#works" class="nav-link">Works</a>
+        <a href="/#contact" class="nav-link">Contact</a>
       </div>
     </nav>
   </div>

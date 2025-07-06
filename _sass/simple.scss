@@ -426,6 +426,12 @@ a {
   padding: 1rem 0 2rem;
   margin: 0 auto;
   max-width: none;
+  animation: autoScroll 20s linear infinite;
+  
+  // Pause animation on hover
+  &:hover {
+    animation-play-state: paused;
+  }
   
   // Custom scrollbar styling
   &::-webkit-scrollbar {
@@ -451,14 +457,27 @@ a {
   scrollbar-color: $teal-400 $gray-100;
 }
 
+// Auto scroll animation
+@keyframes autoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .work-item {
   background-color: $white;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  flex: 0 0 450px; // Larger width to force scroll
-  min-width: 450px;
+  flex: 0 0 350px; // Back to original size
+  min-width: 350px;
   
   &:hover {
     transform: translateY(-8px);
@@ -466,8 +485,8 @@ a {
   }
   
   @media (max-width: 768px) {
-    flex: 0 0 320px;
-    min-width: 320px;
+    flex: 0 0 280px;
+    min-width: 280px;
   }
 }
 

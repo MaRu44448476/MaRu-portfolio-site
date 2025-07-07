@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   {% seo %}
 </head>
 <body>
@@ -39,27 +41,56 @@
       observer.observe(el);
     });
 
-    // Filter functionality for works
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const workItems = document.querySelectorAll('.work-item');
-
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const filter = button.getAttribute('data-filter');
-        
-        // Update active button
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        
-        // Filter work items
-        workItems.forEach(item => {
-          const category = item.getAttribute('data-category');
-          if (filter === 'all' || category === filter) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
+    // Initialize Swiper after page load
+    window.addEventListener('load', function() {
+      // Debug: Check if Swiper exists
+      if (typeof Swiper === 'undefined') {
+        console.error('Swiper is not loaded');
+        return;
+      }
+      
+      const swiperElement = document.querySelector('.works-swiper');
+      if (!swiperElement) {
+        console.error('Swiper element not found');
+        return;
+      }
+      
+      console.log('Initializing Swiper with slidesPerView breakpoints');
+      
+      const swiper = new Swiper('.works-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        on: {
+          init: function () {
+            console.log('Swiper initialized');
+          },
+          resize: function () {
+            console.log('Swiper resized, current slidesPerView:', this.params.slidesPerView);
           }
-        });
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1200: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        },
       });
     });
 
@@ -96,6 +127,8 @@
       });
     });
   </script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   {% if site.google_analytics %}
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- トップページ -->
+    <url>
+        <loc>https://maru-vive.com/link/</loc>
+        <lastmod>2025-07-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- メインページ -->
+    <url>
+        <loc>https://maru-vive.com/link/matome.html</loc>
+        <lastmod>2025-07-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- プライバシーポリシー -->
+    <url>
+        <loc>https://maru-vive.com/link/privacy-policy.html</loc>
+        <lastmod>2025-07-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- 免責事項 -->
+    <url>
+        <loc>https://maru-vive.com/link/disclaimer.html</loc>
+        <lastmod>2025-07-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- 利用規約 -->
+    <url>
+        <loc>https://maru-vive.com/link/terms.html</loc>
+        <lastmod>2025-07-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- 特定商取引法表記 -->
+    <url>
+        <loc>https://maru-vive.com/link/tokusho.html</loc>
+        <lastmod>2025-07-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+</urlset>

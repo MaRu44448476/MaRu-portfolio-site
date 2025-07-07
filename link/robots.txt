@@ -1,0 +1,31 @@
+# robots.txt for MaRu Link
+
+User-agent: *
+Allow: /
+
+# 主要ページの明示的な許可
+Allow: /matome.html
+Allow: /index.html
+Allow: /privacy-policy.html
+Allow: /disclaimer.html
+Allow: /terms.html
+Allow: /tokusho.html
+
+# 静的リソースの許可
+Allow: /matome-style.css
+Allow: /images/
+
+# 不要なファイルのクロール禁止
+Disallow: /*.log
+Disallow: /*.bak
+Disallow: /.*
+Disallow: /server.log
+Disallow: /link-deployment/
+Disallow: /*.zip
+Disallow: /*.md
+
+# サイトマップの場所
+Sitemap: https://maru-vive.com/link/sitemap.xml
+
+# クロール頻度の調整
+Crawl-delay: 1

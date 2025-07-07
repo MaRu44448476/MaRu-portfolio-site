@@ -9,15 +9,3 @@ main:
     url: /link/
   - title: "お問い合わせ"
     url: /#contact
-
-main_en:
-  - title: "Home"
-    url: /
-  - title: "Works"
-    url: /works/
-  - title: "About"
-    url: /about/
-  - title: "Links"
-    url: /en/link/
-  - title: "Contact"
-    url: /#contact

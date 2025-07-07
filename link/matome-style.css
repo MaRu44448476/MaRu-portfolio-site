@@ -353,7 +353,7 @@ body::before {
 .profile-name {
     font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
     color: #FF4447;
     text-shadow: 0 2px 6px rgba(255, 68, 71, 0.6);
     animation: fadeInUp 0.8s ease-out 0.2s both;
@@ -363,8 +363,24 @@ body::before {
     color: #FFFFFF;
     font-size: 1rem;
     margin-bottom: 1.5rem;
-    animation: fadeInUp 0.8s ease-out 0.4s both;
     opacity: 0.9;
+    animation: fadeInUp 0.8s ease-out 0.4s both, glowingBorder 3s ease-in-out infinite 1.5s;
+    position: relative;
+    line-height: 1.8;
+    padding: 1rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+}
+
+@keyframes glowingBorder {
+    0%, 100% {
+        border-color: rgba(255, 255, 255, 0);
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+    50% {
+        border-color: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
 }
 
 .profile-stats {
@@ -510,6 +526,24 @@ section {
     opacity: 0.8;
 }
 
+.card-wrapper {
+    text-decoration: none !important;
+    color: inherit;
+    display: block;
+}
+
+.card-wrapper:hover {
+    text-decoration: none !important;
+}
+
+.card-wrapper * {
+    text-decoration: none !important;
+}
+
+.card-wrapper:hover * {
+    text-decoration: none !important;
+}
+
 .card {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(94, 168, 167, 0.3);
@@ -524,6 +558,7 @@ section {
     align-items: center;
     gap: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 
 
@@ -951,8 +986,238 @@ html {
     animation: fadeInUp 0.8s ease-out 1.4s both;
 }
 
+/* Loading Screen Styles */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a1216 0%, #0f1a20 25%, #12212a 50%, #152834 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-content {
+    text-align: center;
+    animation: loadingFadeIn 1s ease-out;
+}
+
+.loading-panda {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: loadingPandaBounce 1.5s ease-in-out infinite;
+}
+
+.loading-text {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: 600;
+    opacity: 0.8;
+    animation: loadingTextPulse 2s ease-in-out infinite;
+}
+
+.main-content-wrapper {
+    transition: opacity 0.8s ease;
+}
+
+@keyframes loadingFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes loadingPandaBounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.1);
+    }
+}
+
+@keyframes loadingTextPulse {
+    0%, 100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.4;
+    }
+}
+
+/* Legal Pages Styles */
+.legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: linear-gradient(135deg, #0a1216 0%, #0f1a20 25%, #12212a 50%, #152834 100%);
+    min-height: 100vh;
+    color: #FFFFFF;
+    line-height: 1.7;
+}
+
+.legal-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid rgba(94, 168, 167, 0.3);
+}
+
+.legal-header h1 {
+    font-size: 2.5rem;
+    color: #FF4447;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 6px rgba(255, 68, 71, 0.6);
+}
+
+.last-updated {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.legal-content {
+    margin-bottom: 3rem;
+}
+
+.legal-content section {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(94, 168, 167, 0.2);
+}
+
+.legal-content h2 {
+    color: #5EA8A7;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(94, 168, 167, 0.3);
+}
+
+.legal-content h3 {
+    color: #FF6B6E;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.legal-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.legal-content li {
+    margin-bottom: 0.5rem;
+}
+
+.warning-box {
+    background: rgba(255, 68, 71, 0.1);
+    border: 2px solid rgba(255, 68, 71, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.warning-box h3 {
+    color: #FF4447;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.warning-box ul {
+    margin: 0;
+}
+
+.warning-box li {
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+.legal-footer {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(94, 168, 167, 0.3);
+}
+
+.back-link {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #5EA8A7, #37B7A8);
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    background: linear-gradient(135deg, #37B7A8, #5EA8A7);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(94, 168, 167, 0.3);
+}
+
+/* Table Styles for Tokusho */
+.tokusho-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tokusho-table th,
+.tokusho-table td {
+    padding: 1rem;
+    border: 1px solid rgba(94, 168, 167, 0.2);
+    vertical-align: top;
+}
+
+.tokusho-table th {
+    background: rgba(94, 168, 167, 0.2);
+    color: #FFFFFF;
+    font-weight: 600;
+    width: 30%;
+    text-align: left;
+}
+
+.tokusho-table td {
+    background: rgba(255, 255, 255, 0.02);
+    color: #FFFFFF;
+}
+
+.tokusho-table a {
+    color: #5EA8A7;
+    text-decoration: underline;
+}
+
+.tokusho-table a:hover {
+    color: #37B7A8;
+}
+
+.tokusho-table ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.tokusho-table li {
+    margin-bottom: 0.3rem;
+}
+
 /* Print styles */
 @media print {
+    .loading-screen {
+        display: none;
+    }
+    
     .newsletter-section {
         display: none;
     }
@@ -967,8 +1232,19 @@ html {
         text-decoration: underline;
     }
     
+    .legal-container {
+        background: #fff;
+        color: #000;
+    }
+    
+    .warning-box {
+        border: 2px solid #000;
+        background: #f0f0f0;
+    }
+    
     * {
         animation: none !important;
         transition: none !important;
     }
+}
 }

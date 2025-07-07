@@ -319,8 +319,8 @@ a {
 
 // About Section
 .about-simple {
-  background: rgba(245, 245, 245, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(245, 245, 245, 0.1) !important;
+  backdrop-filter: blur(5px) !important;
 }
 
 .about-grid {
@@ -402,8 +402,8 @@ a {
 
 // Works Section
 .works-simple {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(5px) !important;
 }
 
 .works-filter {
@@ -552,8 +552,8 @@ a {
 
 // Contact Section
 .contact-simple {
-  background: rgba(245, 245, 245, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(245, 245, 245, 0.1) !important;
+  backdrop-filter: blur(5px) !important;
 }
 
 .contact-content {

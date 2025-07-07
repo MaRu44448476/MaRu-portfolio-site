@@ -151,16 +151,31 @@ $desktop: 1024px;
 }
 
 // Override for transparent sections and background
-section.about-simple.section,
-section.works-simple.section,
+section.about-simple.section {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  min-height: auto !important;
+}
+
+section.works-simple.section {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  min-height: auto !important;
+}
+
 section.contact-simple.section {
-  background: rgba(255, 255, 255, 0.8) !important;
-  backdrop-filter: blur(10px) !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
   min-height: auto !important;
 }
 
 html, body {
-  background: transparent !important;
+  background-image: url('/assets/images/hero/hero-bg.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  min-height: 100vh !important;
 }
 
 // Hero Background Overrides
